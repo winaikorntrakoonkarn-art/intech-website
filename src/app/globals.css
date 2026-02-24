@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #00447c;
+  --color-primary-dark: #003366;
+  --color-primary-light: #e6eef5;
+  --color-secondary: #1a2332;
+  --color-accent: #ff6600;
+  --color-accent-dark: #e55b00;
+  --color-dark: #0d1117;
+  --color-gray-light: #f4f6f8;
+  --color-success: #2e7d32;
+  --color-category-bg: #003d73;
+  --font-sans: 'Sarabun', system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: 'Sarabun';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/sarabun/v15/DtVmJx26TKEr37c9YL5rilwm.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sarabun';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/sarabun/v15/DtVjJx26TKEr37c9WBJmnQ.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sarabun';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/sarabun/v15/DtVmJx26TKEr37c9YOZqilwm.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sarabun';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/sarabun/v15/DtVmJx26TKEr37c9YIJrilwm.woff2') format('woff2');
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Sarabun', system-ui, sans-serif;
+  color: #1a2332;
+  background-color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Cart drawer animation */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out;
+}
+
+/* Scrollbar styling for carousels */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Category section header bar */
+.section-header-bar {
+  background: linear-gradient(135deg, #00447c 0%, #003366 100%);
+  color: white;
+  padding: 8px 16px;
+  font-weight: 700;
+  font-size: 14px;
 }

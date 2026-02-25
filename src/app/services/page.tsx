@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import RichHtml from "@/components/RichHtml";
 import {
   Settings,
   Cpu,
@@ -112,7 +113,7 @@ export default function ServicesPage() {
                       <IconComp size={28} className="text-primary group-hover:text-white transition" />
                     </div>
                     <h3 className="font-bold text-secondary text-lg mb-2">{service.title}</h3>
-                    <p className="text-gray-500 text-sm mb-4">{service.desc}</p>
+                    <RichHtml html={service.desc} className="text-gray-500 text-sm mb-4" />
                     <ul className="space-y-2">
                       {service.features.map((f, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-gray-600">

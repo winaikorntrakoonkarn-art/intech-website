@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../layout";
 import { Save, Phone, Mail, MapPin, Clock, Globe, MessageCircle } from "lucide-react";
+import RichTextEditor from "@/components/RichTextEditor";
 
 interface SiteSettings {
   phone: string;
@@ -71,7 +72,7 @@ const sections = [
     fields: [
       { key: "heroTitle", label: "หัวข้อหลัก", placeholder: "Intech Delta System" },
       { key: "heroSubtitle", label: "หัวข้อย่อย", placeholder: "Authorized Dealer..." },
-      { key: "heroDescription", label: "คำอธิบาย", placeholder: "ตัวแทนจำหน่าย...", type: "textarea" },
+      { key: "heroDescription", label: "คำอธิบาย", placeholder: "ตัวแทนจำหน่าย...", type: "richtext" },
     ],
   },
 ];
@@ -141,7 +142,14 @@ export default function SettingsAdmin() {
             {section.fields.map((field) => (
               <div key={field.key}>
                 <label className="block text-sm font-semibold text-gray-600 mb-1">{field.label}</label>
-                {field.type === "textarea" ? (
+                {field.type === "richtext" ? (
+                  <RichTextEditor
+                    content={settings[field.key as keyof SiteSettings] || ""}
+                    onChange={(html) => update(field.key, html)}
+                    placeholder={field.placeholder}
+                    token={token}
+                  />
+                ) : field.type === "textarea" ? (
                   <textarea
                     value={settings[field.key as keyof SiteSettings] || ""}
                     onChange={(e) => update(field.key, e.target.value)}

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Award, Users, Building, Wrench, Target, TrendingUp, Globe, Cpu } from "lucide-react";
 import Link from "next/link";
+import RichHtml from "@/components/RichHtml";
 
 interface AboutData {
   companyName: string;
@@ -75,8 +76,8 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold text-secondary mb-6">{about.companyName}</h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
-                <p>{about.description}</p>
-                {about.descriptionExtra && <p>{about.descriptionExtra}</p>}
+                <RichHtml html={about.description} />
+                {about.descriptionExtra && <RichHtml html={about.descriptionExtra} />}
               </div>
             </div>
           </div>
@@ -92,7 +93,7 @@ export default function AboutPage() {
               Authorized Dealer
             </div>
             <h2 className="text-3xl font-bold text-secondary mb-6">DELTA GROUP</h2>
-            <p className="text-gray-600 leading-relaxed">{about.deltaGroupInfo}</p>
+            <RichHtml html={about.deltaGroupInfo} className="text-gray-600 leading-relaxed" />
           </div>
         </div>
       </section>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../layout";
 import { Save, Plus, Trash2 } from "lucide-react";
+import RichTextEditor from "@/components/RichTextEditor";
 
 interface AboutData {
   companyName: string;
@@ -104,29 +105,29 @@ export default function AboutAdmin() {
         <h2 className="font-bold text-gray-700 border-b pb-2">รายละเอียดบริษัท</h2>
         <div>
           <label className="block text-sm font-semibold text-gray-600 mb-1">คำอธิบายหลัก</label>
-          <textarea
-            value={data.description}
-            onChange={(e) => setData({ ...data, description: e.target.value })}
-            rows={4}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-primary resize-none"
+          <RichTextEditor
+            content={data.description}
+            onChange={(html) => setData({ ...data, description: html })}
+            placeholder="คำอธิบายหลัก"
+            token={token}
           />
         </div>
         <div>
           <label className="block text-sm font-semibold text-gray-600 mb-1">คำอธิบายเพิ่มเติม</label>
-          <textarea
-            value={data.descriptionExtra}
-            onChange={(e) => setData({ ...data, descriptionExtra: e.target.value })}
-            rows={4}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-primary resize-none"
+          <RichTextEditor
+            content={data.descriptionExtra}
+            onChange={(html) => setData({ ...data, descriptionExtra: html })}
+            placeholder="คำอธิบายเพิ่มเติม"
+            token={token}
           />
         </div>
         <div>
           <label className="block text-sm font-semibold text-gray-600 mb-1">ข้อมูล Delta Group</label>
-          <textarea
-            value={data.deltaGroupInfo}
-            onChange={(e) => setData({ ...data, deltaGroupInfo: e.target.value })}
-            rows={3}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-primary resize-none"
+          <RichTextEditor
+            content={data.deltaGroupInfo}
+            onChange={(html) => setData({ ...data, deltaGroupInfo: html })}
+            placeholder="ข้อมูล Delta Group"
+            token={token}
           />
         </div>
       </div>

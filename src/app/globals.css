@@ -83,3 +83,67 @@ html {
   font-weight: 700;
   font-size: 14px;
 }
+
+/* ===================== Rich Text Editor Styles ===================== */
+
+.rich-text-editor .tiptap {
+  min-height: 120px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  outline: none;
+}
+
+.rich-text-editor .tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: #9ca3af;
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.rich-text-editor .tiptap h1 { font-size: 1.5em; font-weight: 700; margin: 0.5em 0; }
+.rich-text-editor .tiptap h2 { font-size: 1.25em; font-weight: 700; margin: 0.5em 0; }
+.rich-text-editor .tiptap h3 { font-size: 1.1em; font-weight: 600; margin: 0.5em 0; }
+.rich-text-editor .tiptap p { margin: 0.5em 0; }
+.rich-text-editor .tiptap ul { list-style: disc; padding-left: 1.5em; margin: 0.5em 0; }
+.rich-text-editor .tiptap ol { list-style: decimal; padding-left: 1.5em; margin: 0.5em 0; }
+.rich-text-editor .tiptap li { margin: 0.25em 0; }
+.rich-text-editor .tiptap blockquote {
+  border-left: 3px solid #00447c;
+  padding-left: 1em;
+  margin: 0.5em 0;
+  color: #6b7280;
+}
+.rich-text-editor .tiptap a { color: #00447c; text-decoration: underline; }
+.rich-text-editor .tiptap img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0.5em 0;
+}
+
+/* =================== Frontend Rich HTML Rendering =================== */
+
+.prose-content h1 { font-size: 1.5em; font-weight: 700; margin: 0.5em 0; }
+.prose-content h2 { font-size: 1.25em; font-weight: 700; margin: 0.5em 0; }
+.prose-content h3 { font-size: 1.1em; font-weight: 600; margin: 0.5em 0; }
+.prose-content p { margin: 0.5em 0; }
+.prose-content ul { list-style: disc; padding-left: 1.5em; margin: 0.5em 0; }
+.prose-content ol { list-style: decimal; padding-left: 1.5em; margin: 0.5em 0; }
+.prose-content li { margin: 0.25em 0; }
+.prose-content blockquote {
+  border-left: 3px solid #00447c;
+  padding-left: 1em;
+  margin: 0.5em 0;
+  color: #6b7280;
+}
+.prose-content a { color: #00447c; text-decoration: underline; }
+.prose-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0.5em 0;
+}

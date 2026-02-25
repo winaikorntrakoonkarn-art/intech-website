@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../layout";
 import { Save, Plus, Trash2, ChevronDown, ChevronUp } from "lucide-react";
+import RichTextEditor from "@/components/RichTextEditor";
 
 interface ServiceItem {
   id: string;
@@ -149,12 +150,11 @@ export default function ServicesAdmin() {
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-gray-600 mb-1">คำอธิบาย</label>
-                  <textarea
-                    value={service.desc}
-                    onChange={(e) => updateService(sIdx, "desc", e.target.value)}
-                    rows={3}
-                    className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-primary resize-none"
+                  <RichTextEditor
+                    content={service.desc}
+                    onChange={(html) => updateService(sIdx, "desc", html)}
                     placeholder="คำอธิบายบริการ"
+                    token={token}
                   />
                 </div>
                 <div>

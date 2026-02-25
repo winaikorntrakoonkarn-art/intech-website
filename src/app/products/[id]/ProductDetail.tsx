@@ -9,6 +9,7 @@ import { useCompare } from "@/contexts/CompareContext";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { getCategoryName } from "@/lib/categories";
 import { useAuth } from "@/contexts/AuthContext";
+import RichHtml from "@/components/RichHtml";
 import {
   ChevronRight,
   ShoppingCart,
@@ -362,7 +363,7 @@ export default function ProductDetail({ product, relatedProducts }: Props) {
           {activeTab === "desc" && (
             <div className="prose max-w-none">
               {product.description ? (
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line text-sm">{product.description}</p>
+                <RichHtml html={product.description} className="text-gray-700 leading-relaxed text-sm" />
               ) : (
                 <p className="text-gray-500 text-sm">
                   {product.name} - ผลิตภัณฑ์จาก {product.brand || "Delta Electronics"} คุณภาพสูง

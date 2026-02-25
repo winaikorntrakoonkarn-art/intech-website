@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../layout";
 import { Plus, Edit2, Trash2, X, Save, Search } from "lucide-react";
+import RichTextEditor from "@/components/RichTextEditor";
 
 interface Product {
   id: number;
@@ -243,7 +244,7 @@ export default function ProductsAdmin() {
       {/* Edit Modal */}
       {editing && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between p-4 border-b">
               <h2 className="text-lg font-bold text-gray-800">
                 {isNew ? "เพิ่มสินค้าใหม่" : "แก้ไขสินค้า"}
@@ -298,12 +299,11 @@ export default function ProductsAdmin() {
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">รายละเอียด</label>
-                <textarea
-                  value={editing.description || ""}
-                  onChange={(e) => setEditing({ ...editing, description: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-primary resize-none"
-                  rows={3}
+                <RichTextEditor
+                  content={editing.description || ""}
+                  onChange={(html) => setEditing({ ...editing, description: html })}
                   placeholder="รายละเอียดสินค้า (ไม่บังคับ)"
+                  token={token}
                 />
               </div>
               <div className="flex items-center gap-2">
